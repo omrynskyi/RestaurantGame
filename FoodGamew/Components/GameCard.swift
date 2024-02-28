@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct GameCard: View {
+    
+    var name:String
+    var gradient: [Color]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(name)
+            .frame(width: 330, height: 330,alignment: .center)
+            .font(.system(size: 60, weight:.bold))
+            .background(LinearGradient(gradient: Gradient(colors: gradient), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .foregroundColor(Color.white)
+            .cornerRadius(30)
     }
 }
 
 #Preview {
-    GameCard()
+    GameCard(name: "WOULD YOU RATHER",gradient: [Color.blue,Color.red,Color.purple])
 }

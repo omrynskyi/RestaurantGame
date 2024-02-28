@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct Question: View {
+    var question: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(question)
+            .font(.system(size: 40,weight: .bold))
+            .frame(width: 300, height: 300)
+            .background(Color("AccentGray"))
+            .cornerRadius(20)
+            .padding(10)
     }
 }
 
 #Preview {
-    Question()
+    Question(question: "Greek")
 }

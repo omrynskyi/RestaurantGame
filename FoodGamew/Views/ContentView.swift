@@ -5,6 +5,9 @@ import CoreLocation
 struct ContentView: View {
     @State private var userLocation: String = "Loading..."
     @State private var userRadius: Double = 5
+    
+    @State private var longitude: Double = 0
+    @State private var latitude: Double = 0
     var body: some View {
         
         ZStack{
@@ -12,31 +15,29 @@ struct ContentView: View {
                 ScrollView{
                     VStack{
                         Spacer()
-                        headerSelectionView(userLocation: $userLocation, userRadius: $userRadius)
+                        headerSelectionView(userLocation: $userLocation, userRadius: $userRadius, longitude: $longitude, latitude: $latitude)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                        
                         NavigationLink(destination: {
-                            SelectionView()
+                            if(latitude != 0){
+                                let network: Network = Network()
+                                SelectionView(userRadius: self.userRadius, longitude: self.longitude, latitude: self.latitude)
+                                    .environmentObject(network)
+                            }
                         },label:{
-                            Text("WOULD YOU RATHER")
-                                .frame(width: 330, height: 330)
-                                .font(.system(size: 60, weight:.bold))
-                                .background(LinearGradient(gradient: Gradient(colors: [Color.red,Color.indigo,Color.purple]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .foregroundColor(Color.white)
-                                .cornerRadius(30)
+                            GameCard(name: "THIS OR THAT",gradient: [Color.green,Color.blue,Color.pink])
+                            
+                            
+                            
                         })
-                        Button{
+                        NavigationLink(destination: {
+                            if(latitude != 0){
+                                
+                            }
                             
-                        }label:{
-                            Text("THIS OR THAT")
-                                .frame(width: 330, height: 330)
-                                .font(.system(size: 60, weight:.bold))
-                                .background(LinearGradient(gradient: Gradient(colors: [Color.green,Color.blue,Color.pink]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .foregroundColor(Color.white)
-                                .cornerRadius(30)
-                            
-                            
-                        }
+                        },label:{
+                            GameCard(name: "COMING SOON",gradient: [Color.red,Color.indigo,Color.purple])
+                        })
+                        
                         Spacer()
                         
                     }
@@ -55,12 +56,16 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
 .previewInterfaceOrientation(.portrait)
+
     }
 }
 
 struct headerSelectionView: View{
     @Binding var userLocation: String
     @Binding var userRadius: Double
+    @Binding var longitude: Double
+    @Binding var latitude: Double
+    
     @State private var showingBar:Bool = false
     func locationServices(){
         let locManager = CLLocationManager()
@@ -72,6 +77,9 @@ struct headerSelectionView: View{
         {
             currentLocation = locManager.location
         }
+        self.longitude = currentLocation.coordinate.longitude
+        self.latitude = currentLocation.coordinate.latitude
+        
         CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude)) { placemarks, error in
 
                     guard let placemark = placemarks?.first else {
@@ -94,6 +102,7 @@ struct headerSelectionView: View{
                 HStack {
                     Text(userLocation)
                         .font(.headline)
+                        .foregroundColor(.primary)
                     
                     Image(systemName: "location")
                         .resizable()

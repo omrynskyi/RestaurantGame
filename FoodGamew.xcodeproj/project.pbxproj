@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C71B53512B8EA05F00D2E06E /* CardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71B53502B8EA05F00D2E06E /* CardButton.swift */; };
+		C76BDBFF2B8547FE00942503 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76BDBFE2B8547FE00942503 /* SelectionView.swift */; };
+		C76D6A962B891F0200058C66 /* DisplayResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76D6A952B891F0200058C66 /* DisplayResults.swift */; };
 		C77ED7262B7EF17600840A4A /* FoodGamewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77ED7252B7EF17600840A4A /* FoodGamewApp.swift */; };
 		C77ED7282B7EF17600840A4A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77ED7272B7EF17600840A4A /* ContentView.swift */; };
 		C77ED72A2B7EF17800840A4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77ED7292B7EF17800840A4A /* Assets.xcassets */; };
@@ -14,6 +17,13 @@
 		C77ED7372B7EF17800840A4A /* FoodGamewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77ED7362B7EF17800840A4A /* FoodGamewTests.swift */; };
 		C77ED7412B7EF17800840A4A /* FoodGamewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77ED7402B7EF17800840A4A /* FoodGamewUITests.swift */; };
 		C77ED7432B7EF17800840A4A /* FoodGamewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77ED7422B7EF17800840A4A /* FoodGamewUITestsLaunchTests.swift */; };
+		C7C161B52B869DB4006871EB /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C161B42B869DB4006871EB /* QuestionView.swift */; };
+		C7C161B82B86A053006871EB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C161B72B86A053006871EB /* Restaurant.swift */; };
+		C7C161BA2B86A43D006871EB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C161B92B86A43D006871EB /* Network.swift */; };
+		C7C161BE2B86AC9D006871EB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C161BD2B86AC9D006871EB /* Question.swift */; };
+		C7C161C02B86ADA5006871EB /* GameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C161BF2B86ADA5006871EB /* GameCard.swift */; };
+		C7C161C22B86B103006871EB /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C161C12B86B103006871EB /* CategoryItem.swift */; };
+		C7C161CC2B87E84D006871EB /* Businesses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C161CB2B87E84D006871EB /* Businesses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C71B53502B8EA05F00D2E06E /* CardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardButton.swift; sourceTree = "<group>"; };
+		C76BDBFE2B8547FE00942503 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		C76D6A952B891F0200058C66 /* DisplayResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayResults.swift; sourceTree = "<group>"; };
 		C77ED7222B7EF17600840A4A /* FoodGamew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGamew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77ED7252B7EF17600840A4A /* FoodGamewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGamewApp.swift; sourceTree = "<group>"; };
 		C77ED7272B7EF17600840A4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +57,13 @@
 		C77ED73C2B7EF17800840A4A /* FoodGamewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodGamewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77ED7402B7EF17800840A4A /* FoodGamewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGamewUITests.swift; sourceTree = "<group>"; };
 		C77ED7422B7EF17800840A4A /* FoodGamewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGamewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C7C161B42B869DB4006871EB /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		C7C161B72B86A053006871EB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		C7C161B92B86A43D006871EB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		C7C161BD2B86AC9D006871EB /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		C7C161BF2B86ADA5006871EB /* GameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCard.swift; sourceTree = "<group>"; };
+		C7C161C12B86B103006871EB /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		C7C161CB2B87E84D006871EB /* Businesses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Businesses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				C77ED7252B7EF17600840A4A /* FoodGamewApp.swift */,
-				C77ED7272B7EF17600840A4A /* ContentView.swift */,
+				C7C161BC2B86AC8D006871EB /* Components */,
+				C7C161BB2B86ABE4006871EB /* Views */,
+				C7C161B62B86A035006871EB /* Models */,
 				C77ED7292B7EF17800840A4A /* Assets.xcassets */,
 				C77ED72B2B7EF17800840A4A /* Preview Content */,
 			);
@@ -125,6 +147,38 @@
 				C77ED7422B7EF17800840A4A /* FoodGamewUITestsLaunchTests.swift */,
 			);
 			path = FoodGamewUITests;
+			sourceTree = "<group>";
+		};
+		C7C161B62B86A035006871EB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7C161B72B86A053006871EB /* Restaurant.swift */,
+				C7C161C12B86B103006871EB /* CategoryItem.swift */,
+				C7C161B92B86A43D006871EB /* Network.swift */,
+				C7C161CB2B87E84D006871EB /* Businesses.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C7C161BB2B86ABE4006871EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C7C161B42B869DB4006871EB /* QuestionView.swift */,
+				C76D6A952B891F0200058C66 /* DisplayResults.swift */,
+				C76BDBFE2B8547FE00942503 /* SelectionView.swift */,
+				C77ED7272B7EF17600840A4A /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C7C161BC2B86AC8D006871EB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C7C161BD2B86AC9D006871EB /* Question.swift */,
+				C7C161BF2B86ADA5006871EB /* GameCard.swift */,
+				C71B53502B8EA05F00D2E06E /* CardButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +245,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					C77ED7212B7EF17600840A4A = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -257,8 +311,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7C161B52B869DB4006871EB /* QuestionView.swift in Sources */,
+				C71B53512B8EA05F00D2E06E /* CardButton.swift in Sources */,
+				C7C161C02B86ADA5006871EB /* GameCard.swift in Sources */,
+				C7C161BE2B86AC9D006871EB /* Question.swift in Sources */,
+				C7C161CC2B87E84D006871EB /* Businesses.swift in Sources */,
 				C77ED7282B7EF17600840A4A /* ContentView.swift in Sources */,
+				C76D6A962B891F0200058C66 /* DisplayResults.swift in Sources */,
+				C7C161B82B86A053006871EB /* Restaurant.swift in Sources */,
+				C7C161C22B86B103006871EB /* CategoryItem.swift in Sources */,
 				C77ED7262B7EF17600840A4A /* FoodGamewApp.swift in Sources */,
+				C7C161BA2B86A43D006871EB /* Network.swift in Sources */,
+				C76BDBFF2B8547FE00942503 /* SelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +396,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -393,6 +458,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -419,8 +485,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoodGamew/Preview Content\"";
+				DEVELOPMENT_TEAM = RQDL2TA7ZS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow to view Location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -447,8 +515,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FoodGamew/Preview Content\"";
+				DEVELOPMENT_TEAM = RQDL2TA7ZS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow to view Location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

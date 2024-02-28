@@ -8,56 +8,66 @@
 import SwiftUI
 
 struct SelectionView: View {
+    @EnvironmentObject var network: Network
+    var userRadius: Double = 5
+    var longitude: Double = 0
+    var latitude: Double = 0
+    
     @Environment(\.dismiss) private var dismiss
     @State var transportSelection: Transport = .car
     @State private var selectedCount: Int = 0
     @State var priceExluded: Int = 0
+
+   
     
     var body: some View {
         
-        VStack{
-            header()
-            Spacer()
-            
-            Text("Select Price Range")
-                .font(.system(size: 25, weight:.bold))
-                .foregroundColor(.black)
-            PriceSelectionView(selectedCount:$selectedCount, priceExluded: $priceExluded).padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
-            Spacer()
-            Text("I am")
-                .font(.system(size: 25, weight:.bold))
-                .foregroundColor(.black)
-            
-            Picker("Transport", selection: $transportSelection) {
-                Image(systemName: "figure.walk").tag(Transport.walk)
-                Image(systemName: "car.fill").tag(Transport.car)
-                Image(systemName: "bus").tag(Transport.bus)
-            }.pickerStyle(.segmented)
-                .padding(EdgeInsets(top:0,leading:40,bottom:0,trailing:40))
-            
-            Spacer()
-            Button{
+        NavigationView {
+            VStack{
                 
-            }label:{
-                Text("Begin Game")
-                    .frame(width: 250,height: 100)
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .font(.system(size: 30,weight: .bold))
-                    .cornerRadius(15)
+                header()
+                Spacer()
+                
+                Text("Select Price Range")
+                    .font(.system(size: 25, weight:.bold))
+                    .foregroundColor(.primary)
+                PriceSelectionView(selectedCount:$selectedCount, priceExluded: $priceExluded).padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
+                Spacer()
+                Text("I am")
+                    .font(.system(size: 25, weight:.bold))
+                    .foregroundColor(.primary)
+                
+                Picker("Transport", selection: $transportSelection) {
+                    Image(systemName: "figure.walk").tag(Transport.walk)
+                    Image(systemName: "car.fill").tag(Transport.car)
+                    Image(systemName: "bus").tag(Transport.bus)
+                }.pickerStyle(.segmented)
+                    .padding(EdgeInsets(top:0,leading:40,bottom:0,trailing:40))
+                
+                Spacer()
+                NavigationLink{
+                    QuestionView()
+                        .environmentObject(network)
+                }label:{
+                    Text("Begin Game")
+                        .frame(width: 250,height: 100)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .font(.system(size: 30,weight: .bold))
+                        .cornerRadius(15)
+                }
+                Spacer()
+            
             }
-            Spacer()
-        
+        }.onAppear {
+            network.gameStart(longitude: self.longitude, latitude: self.latitude, radius: self.userRadius)
         }.navigationBarBackButtonHidden(true)
             .toolbar {
                 //
                 ToolbarItem(placement: .navigationBarLeading) {
 
                     Button {
-                        // 3
-                        print("Custom Action")
                         dismiss()
-
                     } label: {
                         // 4
                         HStack {
@@ -67,7 +77,7 @@ struct SelectionView: View {
                         }
                     }
                 }
-            }
+        }
     }
     //end of body
 
@@ -75,10 +85,10 @@ struct SelectionView: View {
 }
 struct header: View {
     var body: some View {
-        Text("Would You Rather")
+        Text("This Or That")
             .frame(width: UIScreen.main.bounds.width, height: 30)
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
-            .background(LinearGradient(gradient: Gradient(colors: [Color.red,Color.indigo,Color.purple]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .background(LinearGradient(gradient: Gradient(colors: [Color.green,Color.blue,Color.pink]), startPoint: .topLeading, endPoint: .bottomTrailing))
             .foregroundColor(.white)
             .font(.system(size: 25, weight:.bold))
 
@@ -131,6 +141,7 @@ enum Transport: String, CaseIterable {
 }
 
 struct SelectionView_Previews: PreviewProvider {
+    
     static var previews: some View {
         SelectionView()
 .previewInterfaceOrientation(.portrait)

@@ -8,9 +8,56 @@
 import SwiftUI
 
 struct QuestionView: View {
+    @EnvironmentObject var network: Network
+    
+    
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        
+        VStack{
+            header()
+            if(!network.gameOver){
+                Spacer()
+                Button{
+                    network.selectedAnswer(answer: network.currQuestion[0])
+                }label: {
+                    Question(question: network.currQuestion[0])
+                        .foregroundColor(.black)
+                }
+                Button{
+                    network.selectedAnswer(answer: network.currQuestion[1])
+                    
+                }label: {
+                    Question(question: network.currQuestion[1])
+                        .foregroundColor(.black)
+                    
+                }
+                
+                Spacer()
+            }else{
+                Spacer()
+                ScrollView{
+                    VStack{
+                        ForEach(network.getResult()) { restaurant in
+                            DisplayResults(restaurant: restaurant)
+                        }
+                    
+                    }
+
+                }
+                                    
+                    
+                
+                
+                   
+                
+                Spacer()
+            }
+            
+        }.navigationBarBackButtonHidden(true)
+        
+        
+    }//end of body
 }
 
 #Preview {
