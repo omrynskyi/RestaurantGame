@@ -22,14 +22,14 @@ struct QuestionView: View {
                     network.selectedAnswer(answer: network.currQuestion[0])
                 }label: {
                     Question(question: network.currQuestion[0])
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                 }
                 Button{
                     network.selectedAnswer(answer: network.currQuestion[1])
                     
                 }label: {
                     Question(question: network.currQuestion[1])
-                        .foregroundColor(.black)
+                        .foregroundColor(.primary)
                     
                 }
                 
@@ -38,7 +38,7 @@ struct QuestionView: View {
                 Spacer()
                 ScrollView{
                     VStack{
-                        ForEach(network.getResult()) { restaurant in
+                        ForEach(network.getResult(), id: \.self) { restaurant in
                             DisplayResults(restaurant: restaurant)
                         }
                     

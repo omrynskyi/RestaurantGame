@@ -4,58 +4,91 @@
 //
 //  Created by Oleg Mrynskyi on 2/23/24.
 //
+import MapKit
 
 import SwiftUI
 
 struct DisplayResults: View {
     var restaurant: Restaurant
    
+
     
     var body: some View {
-        Spacer()
-        VStack{
 
+        VStack{
             // Fetch Image Data
-            AsyncImage(url: URL(string: restaurant.image_url))
-                .frame(width: 220,height: 180)
-                .background(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                .cornerRadius(10)
-                .padding(15)
-        
+            
+            AsyncImage(url: URL(string: restaurant.image_url)) { Image in
+                Image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 300, height: 230)
+                    .cornerRadius(10)
+                    .padding(15)
+            } placeholder: {
+                Color.blue
+            }
+
+
+            
             Text(restaurant.name)
                 .font(.system(size: 25,weight: .bold))
+
             HStack{
-                ForEach(0...3, id: \.self) { index in
-                    Image(systemName: "dollarsign")
+                if(restaurant.price != nil){
+                    Text(restaurant.price!)
                         .font(.system(size: 20))
-                        .padding(-4)
+                        .lineSpacing(3)
                 }
+                
             }.padding(5)
             let _ = print(restaurant.categories)
             ForEach(0...restaurant.categories.count-1, id: \.self) { index in
                 Text(restaurant.categories[index].title).foregroundColor(.gray)
             }
-            
-            //HStack{
-                //Image(systemName: "mappin.and.ellipse")
-                //    .resizable()
-                //    .frame(width: 20, height: 20)
-             //   Text("ETA: 5 min")
-           // }.foregroundColor(.gray)
-            HStack{
-                Button{
-                    
-                    
-                }label:{
-                    CardButton(title:"Get Direction", backColor: .green, frontColor: .black)
+            //Image(systemName: "mappin.and.ellipse")
+            //    .resizable()
+            //    .frame(width: 20, height: 20)
+            //   Text("ETA: 5 min")
+            // }.foregroundColor(.gray)
+            Image("YelpLogo").resizable()
+                .scaledToFit()
+                .frame(width: 70, height: 30)
+                .padding(20)
+                .onTapGesture {
+                    self.restaurant.openInYelp()
                 }
-                
-            }
-        }.frame(width: 300, height: 500)
-            .background(Color("AccentGray"))
-            .cornerRadius(30)
+            Spacer()
+            HStack{
+               
+                Button(action: {
+                    print("get direction")
+                    self.restaurant.openAppleMaps()
+                }, label: {
+                    CardButton(title:"Get Directions", backColor: .green, frontColor: .white)
+                })
             
-        Spacer()
+            }
+            Spacer()
+            
+        }
+        .frame(width: 370)
+        .background(Color("AccentGray"))
+        .cornerRadius(20)
+        .padding(20)
+            
+    
     }
+    
 }
 
+
+struct CenterModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        HStack {
+            Spacer()
+            content
+            Spacer()
+        }
+    }
+}

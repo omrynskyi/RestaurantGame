@@ -13,15 +13,15 @@ struct CardButton: View {
     var frontColor: Color
     
     var body: some View {
-        Text("Get Directions")
-            .frame(width: 170,height: 70)
-            .background(Color.green)
-            .foregroundColor(.black)
-            .font(.system(size: 20, weight: .bold))
+        Text(title)
+            .frame(width: 330,height: 60)
+            .background(backColor)
+            .foregroundColor(frontColor)
+            .font(.system(size: 18, weight: .bold))
             .cornerRadius(10)
     }
 }
 
 #Preview {
-    CardButton(title: "Get Direction", backColor: .green, frontColor: .black)
+    CardButton(title: "Get Direction", backColor: .blue, frontColor: .white)
 }

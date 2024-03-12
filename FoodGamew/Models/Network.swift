@@ -16,6 +16,7 @@ class Network: ObservableObject {
     @Published var gameOver: Bool = false
     @Published private(set) var length = 0
     
+    
     func initVar(){
         questionChoices = []
         notChosen = []
@@ -28,20 +29,19 @@ class Network: ObservableObject {
     
     
     
-    func gameStart(longitude: Double, latitude:Double, radius:Double){
+    func gameStart(longitude: Double, latitude:Double, radius:Double, price: [Int], canContinue: Binding<Bool>){
         Task{
             print("Getting buisnesses latitude=\(latitude)&longitude=\(longitude)&limit=5&radius=\(milesToMeters(miles: radius))")
-            await fetchYelpBusinesses(latitude: latitude,longitude: longitude,radius: milesToMeters(miles: radius) )
+            await fetchYelpBusinesses(latitude: latitude,longitude: longitude,radius: milesToMeters(miles: radius), price: price )
             initVar()
-            print(businessData)
             makeCategoryDict()
             filterCategoryByLength(length: 1)
             initQuestionChoices()
             print(questionChoices)
             getNextQuestion()
-
+            canContinue.wrappedValue = true
         }
-        
+       
         
         
     }
@@ -53,10 +53,14 @@ class Network: ObservableObject {
         case notInitialized
         
     }
-    func fetchYelpBusinesses(latitude: Double , longitude: Double ,radius: Int ) async  {
-        //print("https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&radius=\(radius)&sort_by=best_match&limit=5")
+    func fetchYelpBusinesses(latitude: Double , longitude: Double ,radius: Int, price: [Int] ) async  {
+        var priceStr: String = ""
+        for i in price{
+            priceStr += "&price=\(i)"
+        }
+        print("https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&radius=\(radius)\(priceStr)&sort_by=best_match&limit=50")
         let apikey = "Rn6IRhALeqBY-4WsUEncwmOfHE31Nuv7DRpVmDvpwfDYeXF0RKGnvQKqQOVZ_MSoCPaR2anGs582xTsnUeqKeSrfBrsTH3-qYpTjXQkGjAiCIWf8b9y2kFSLN1LFZXYx"
-        let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&radius=\(radius)&sort_by=best_match&limit=50")
+        let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&radius=\(radius)\(priceStr)&sort_by=best_match&limit=50")
         var request = URLRequest(url: url!)
         request.setValue("Bearer \(apikey)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
@@ -98,7 +102,6 @@ class Network: ObservableObject {
             for categoryItem in place.categories{
                 let title = categoryItem.title
                 if(!categoryDict.keys.contains(title)){
-                    print("hash: \(title), value: \(place.name)")
                     categoryDict[title] = CategoryItem()
                     categoryDict[title]?.addRestaurant(restaurant: place)
                 }else{

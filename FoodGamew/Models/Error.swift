@@ -6,3 +6,7 @@
 //
 
 import Foundation
+enum locationError: Error {
+    case unableToReverseGeocodeLocation
+    case locationServicesOff
+}
