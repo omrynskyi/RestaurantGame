@@ -38,8 +38,12 @@ class Network: ObservableObject {
             filterCategoryByLength(length: 1)
             initQuestionChoices()
             print(questionChoices)
-            getNextQuestion()
-            canContinue.wrappedValue = true
+            if(questionChoices.count >= 2){
+                getNextQuestion()
+                canContinue.wrappedValue = true
+            }
+            
+            
         }
        
         
@@ -59,7 +63,7 @@ class Network: ObservableObject {
             priceStr += "&price=\(i)"
         }
         print("https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&radius=\(radius)\(priceStr)&sort_by=best_match&limit=50")
-        let apikey = "Rn6IRhALeqBY-4WsUEncwmOfHE31Nuv7DRpVmDvpwfDYeXF0RKGnvQKqQOVZ_MSoCPaR2anGs582xTsnUeqKeSrfBrsTH3-qYpTjXQkGjAiCIWf8b9y2kFSLN1LFZXYx"
+        let apikey = API_KEY
         let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&radius=\(radius)\(priceStr)&sort_by=best_match&limit=50")
         var request = URLRequest(url: url!)
         request.setValue("Bearer \(apikey)", forHTTPHeaderField: "Authorization")
@@ -168,7 +172,9 @@ class Network: ObservableObject {
         return categoryDict[self.questionChoices[currentSelectionIndex]]!.restaurants
     }
     
-    
+    func getProgress()->Double{
+        return Double(notChosenIndex) / Double(questionChoices.count)
+    }
 
 }
 

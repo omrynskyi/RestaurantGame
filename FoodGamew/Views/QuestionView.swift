@@ -17,6 +17,7 @@ struct QuestionView: View {
         VStack{
             header()
             if(!network.gameOver){
+                ProgressBar(progress: network.getProgress(), width: 300)
                 Spacer()
                 Button{
                     network.selectedAnswer(answer: network.currQuestion[0])

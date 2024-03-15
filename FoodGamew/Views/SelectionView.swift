@@ -26,6 +26,7 @@ struct SelectionView: View {
     var body: some View {
         
         NavigationView {
+            
             VStack{
                 
                 header()
