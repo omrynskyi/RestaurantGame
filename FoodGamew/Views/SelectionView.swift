@@ -12,9 +12,12 @@ struct SelectionView: View {
     var userRadius: Double = 5
     var longitude: Double = 0
     var latitude: Double = 0
-    var priceLimit: [Int] = []
+    @State var priceLimit: [Int] = []
+    @State private var selectedCount: Int = 0
+    @State var priceExluded: Int = 0
     
-    @State var canContinue: Bool = false
+    
+    
     
     
     @Environment(\.dismiss) private var dismiss
@@ -31,6 +34,11 @@ struct SelectionView: View {
                 
                 header()
                 Spacer()
+                Text("Select Price Range")
+                    .font(.system(size: 20, weight:.bold))
+                    .foregroundColor(.primary)
+                PriceSelectionView(selectedCount:$selectedCount, priceExluded: $priceExluded, priceArr: $priceLimit).padding(EdgeInsets(top: 1, leading: 0, bottom: 7, trailing: 0))
+                Spacer()
                 
                 
                 Text("I am")
@@ -45,21 +53,15 @@ struct SelectionView: View {
                     .padding(EdgeInsets(top:0,leading:40,bottom:0,trailing:40))
                 
                 Spacer()
-                if(!canContinue){
-                    Text("Loading Content Please Wait...")
-                        .font(.system(size: 20))
-                        .foregroundColor(.primary)
-                }
                 NavigationLink{
-                    if(canContinue){
-                        QuestionView().environmentObject(network)
-                    }
+                    QuestionView(userRadius: self.userRadius, longitude: self.longitude, latitude: self.latitude, priceLimit: priceLimit).environmentObject(network)
+                    
                 }
             label:{
                    
                 Text("Begin Game")
                     .frame(width: 250,height: 100)
-                    .background(canContinue ? Color.green : Color.secondary)
+                    .background(Color.green)
                     .foregroundColor(.white)
                     .font(.system(size: 30,weight: .bold))
                     .cornerRadius(15)
@@ -70,7 +72,7 @@ struct SelectionView: View {
             
             }
         }.onAppear {
-            network.gameStart(longitude: self.longitude, latitude: self.latitude, radius: self.userRadius, price: self.priceLimit, canContinue: $canContinue)
+            
             
             
         }.navigationBarBackButtonHidden(true)

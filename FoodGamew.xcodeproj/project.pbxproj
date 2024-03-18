@@ -11,6 +11,7 @@
 		C71B53532B9196D600D2E06E /* PriceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71B53522B9196D600D2E06E /* PriceSelectionView.swift */; };
 		C728F7AC2BA37BE200A5E1E1 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728F7AB2BA37BE200A5E1E1 /* ProgressBar.swift */; };
 		C728F7AF2BA4B6D900A5E1E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728F7AE2BA4B6D900A5E1E1 /* Constants.swift */; };
+		C749CDA62BA8967400E0F9E0 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C749CDA52BA8967400E0F9E0 /* LoadingScreen.swift */; };
 		C76BDBFF2B8547FE00942503 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76BDBFE2B8547FE00942503 /* SelectionView.swift */; };
 		C76D6A962B891F0200058C66 /* DisplayResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76D6A952B891F0200058C66 /* DisplayResults.swift */; };
 		C77ED7262B7EF17600840A4A /* FoodGamewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77ED7252B7EF17600840A4A /* FoodGamewApp.swift */; };
@@ -53,6 +54,7 @@
 		C71B53522B9196D600D2E06E /* PriceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceSelectionView.swift; sourceTree = "<group>"; };
 		C728F7AB2BA37BE200A5E1E1 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		C728F7AE2BA4B6D900A5E1E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C749CDA52BA8967400E0F9E0 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		C76BDBFE2B8547FE00942503 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		C76D6A952B891F0200058C66 /* DisplayResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayResults.swift; sourceTree = "<group>"; };
 		C77ED7222B7EF17600840A4A /* FoodGamew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodGamew.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +202,7 @@
 				C71B53502B8EA05F00D2E06E /* CardButton.swift */,
 				C71B53522B9196D600D2E06E /* PriceSelectionView.swift */,
 				C728F7AB2BA37BE200A5E1E1 /* ProgressBar.swift */,
+				C749CDA52BA8967400E0F9E0 /* LoadingScreen.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				C77ED7282B7EF17600840A4A /* ContentView.swift in Sources */,
 				C728F7AC2BA37BE200A5E1E1 /* ProgressBar.swift in Sources */,
 				C76D6A962B891F0200058C66 /* DisplayResults.swift in Sources */,
+				C749CDA62BA8967400E0F9E0 /* LoadingScreen.swift in Sources */,
 				C7C161B82B86A053006871EB /* Restaurant.swift in Sources */,
 				C71B53532B9196D600D2E06E /* PriceSelectionView.swift in Sources */,
 				C7C161C22B86B103006871EB /* CategoryItem.swift in Sources */,

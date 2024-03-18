@@ -28,9 +28,6 @@ struct ContentView: View {
     
     @State private var longitude: Double = 0
     @State private var latitude: Double = 0
-    @State private var selectedCount: Int = 0
-    @State var priceExluded: Int = 0
-    @State var priceArr: [Int] = []
     
     @State var canContinue: Bool = false
     
@@ -46,16 +43,13 @@ struct ContentView: View {
                             headerSelectionView(userLocation: $userLocation, userRadius: $userRadius, longitude: $longitude, latitude: $latitude, canContinue: $canContinue)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                             
-                            Text("Select Price Range")
-                                .font(.system(size: 20, weight:.bold))
-                                .foregroundColor(.primary)
-                            PriceSelectionView(selectedCount:$selectedCount, priceExluded: $priceExluded, priceArr: $priceArr).padding(EdgeInsets(top: 1, leading: 0, bottom: 7, trailing: 0))
+                            
                             Spacer()
                             NavigationLink{
                                 if(latitude != 0 && canContinue){
                                     
                                     let network: Network = Network()
-                                    SelectionView(userRadius: self.userRadius, longitude: self.longitude, latitude: self.latitude, priceLimit: priceArr)
+                                    SelectionView(userRadius: self.userRadius, longitude: self.longitude, latitude: self.latitude)
                                         .environmentObject(network)
                                 }
                             }label:{

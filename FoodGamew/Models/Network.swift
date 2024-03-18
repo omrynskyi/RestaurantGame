@@ -64,7 +64,7 @@ class Network: ObservableObject {
         }
         print("https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&radius=\(radius)\(priceStr)&sort_by=best_match&limit=50")
         let apikey = API_KEY
-        let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&radius=\(radius)\(priceStr)&sort_by=best_match&limit=50")
+        let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(latitude)&longitude=\(longitude)&radius=\(radius)\(priceStr)&open_now=true&sort_by=best_match&limit=50")
         var request = URLRequest(url: url!)
         request.setValue("Bearer \(apikey)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
